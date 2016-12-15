@@ -661,6 +661,12 @@
                 </customObject>
                 <menu id="60J-TP-Ny7">
                     <items>
+                        <menuItem title="Load Layout" id="Kdg-cE-Elf">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="resetClicked:" target="Voe-Tx-rLC" id="w1j-PB-Rek"/>
+                            </connections>
+                        </menuItem>
                         <menuItem title="Quit" id="zxI-ER-xvh">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>

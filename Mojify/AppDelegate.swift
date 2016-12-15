@@ -28,10 +28,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, CocoaMQTTDelegate {
         // Insert code here to tear down your application
     }
     
+    @IBAction func resetClicked(_ sender: Any) {
+        if mqtt.connState == CocoaMQTTConnState.connected {
+            initializeLayout()
+        }
+    }
+    
     @IBAction func quitClicked(_ sender: Any) {
         NSApplication.shared().terminate(self)
     }
-    
+
     private func initMqtt() {
         // TODO(janek): security ;__;
         mqtt.username = "difrxdkm"
@@ -41,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, CocoaMQTTDelegate {
         mqtt.delegate = self
         mqtt.connect()
     }
-    
+
     private func initializeLayout() {
         var payload: String?
         if let path = Bundle.main.path(forResource: "sample_layouts_req", ofType: "json") {
