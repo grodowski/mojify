@@ -14,18 +14,9 @@ import Foundation
 
 class KeyboardEventTap {
     typealias Cb = (String) -> Void
-    let callbacks = Array<Cb>()
+    var callbacks = Array<Cb>()
     
     init() {
-        DispatchQueue.global(qos: .background).async {
-            print("Starting background listener... 🔊➡️👂") // Some day it will receive events from the remote keyboard
-            let charArray = Array("😱".utf16)
-            while (true) {
-                self.dispatchEvent(chars: charArray)
-                sleep(1)
-            }
-        }
-        
         guard let eventTap = createTap() else {
             // TODO(janek): use authorization services instead of requiring root access
             print("Failed to create event tap, do you have root access? 🔑❓")
@@ -41,8 +32,8 @@ class KeyboardEventTap {
     }
     
     // Adds a callback function. Invoked by KeyboardEventTap every time a CGEvent is fired by the OS
-    func registerAppCallback(closure: Cb) {
-        // TODO(janek)
+    func registerAppCallback(closure: @escaping Cb) {
+        callbacks.append(closure);
     }
     
     // Sends a faux-event, emulating a key press with desired key sequence. Emoji-ready!

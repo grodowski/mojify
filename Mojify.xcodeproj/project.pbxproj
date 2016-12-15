@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D5773441E02B2EF007BCDD8 /* Pods_Mojify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5773431E02B2EF007BCDD8 /* Pods_Mojify.framework */; };
 		3D5773461E02B3B7007BCDD8 /* KeyboardEventTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5773451E02B3B7007BCDD8 /* KeyboardEventTap.swift */; };
+		3D57734A1E02D17B007BCDD8 /* sample_layouts_req.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D5773491E02D17B007BCDD8 /* sample_layouts_req.json */; };
 		3D70F0DB1E02ACE800456BAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D70F0DA1E02ACE800456BAF /* AppDelegate.swift */; };
 		3D70F0DF1E02ACE800456BAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D70F0DE1E02ACE800456BAF /* Assets.xcassets */; };
 		3D70F0E21E02ACE800456BAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D70F0E01E02ACE800456BAF /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 		3D3BAAE61E02B2D50031A8F2 /* Pods_Mojify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Mojify.framework; path = Pods/../build/Debug/Pods_Mojify.framework; sourceTree = "<group>"; };
 		3D5773431E02B2EF007BCDD8 /* Pods_Mojify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Mojify.framework; path = Pods/../build/Debug/Pods_Mojify.framework; sourceTree = "<group>"; };
 		3D5773451E02B3B7007BCDD8 /* KeyboardEventTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardEventTap.swift; sourceTree = "<group>"; };
+		3D5773491E02D17B007BCDD8 /* sample_layouts_req.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_layouts_req.json; sourceTree = "<group>"; };
 		3D70F0D71E02ACE800456BAF /* Mojify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mojify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D70F0DA1E02ACE800456BAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D70F0DE1E02ACE800456BAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				3D70F0E01E02ACE800456BAF /* Main.storyboard */,
 				3D70F0E31E02ACE800456BAF /* Info.plist */,
 				3D5773451E02B3B7007BCDD8 /* KeyboardEventTap.swift */,
+				3D5773491E02D17B007BCDD8 /* sample_layouts_req.json */,
 			);
 			path = Mojify;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D57734A1E02D17B007BCDD8 /* sample_layouts_req.json in Resources */,
 				3D70F0DF1E02ACE800456BAF /* Assets.xcassets in Resources */,
 				3D70F0E21E02ACE800456BAF /* Main.storyboard in Resources */,
 			);
