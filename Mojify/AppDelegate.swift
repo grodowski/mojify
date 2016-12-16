@@ -13,7 +13,8 @@ import CocoaMQTT
 class AppDelegate: NSObject, NSApplicationDelegate, CocoaMQTTDelegate {
 
     @IBOutlet weak var statusMenu: NSMenu!
-
+    @IBOutlet weak var returnKeyOption: NSMenuItem!
+    
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     let tap = KeyboardEventTap()
     let mqtt: CocoaMQTT = CocoaMQTT(clientID: String(ProcessInfo.processInfo.processIdentifier), host: "m21.cloudmqtt.com", port: 18560)
@@ -31,6 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, CocoaMQTTDelegate {
     @IBAction func resetClicked(_ sender: Any) {
         if mqtt.connState == CocoaMQTTConnState.connected {
             initializeLayout()
+            print("Layout requested")
         }
     }
     
@@ -38,6 +40,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, CocoaMQTTDelegate {
         NSApplication.shared().terminate(self)
     }
 
+    @IBAction func returnKeyOptionClicked(_ sender: Any) {
+        if (returnKeyOption.state == NSOffState) {
+            returnKeyOption.state = NSOnState
+        } else {
+            returnKeyOption.state = NSOffState
+        }
+        initializeLayout()
+    }
+    
     private func initMqtt() {
         // TODO(janek): security ;__;
         mqtt.username = "difrxdkm"
@@ -49,8 +60,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, CocoaMQTTDelegate {
     }
 
     private func initializeLayout() {
+        if (returnKeyOption.state == NSOffState) {
+            loadLayout(path: "sample_layouts_req")
+            return
+        }
+        loadLayout(path: "sample_layouts_req_enter")
+    }
+    
+    private func loadLayout(path: String) {
         var payload: String?
-        if let path = Bundle.main.path(forResource: "sample_layouts_req", ofType: "json") {
+        if let path = Bundle.main.path(forResource: path, ofType: "json") {
             do {
                 try payload = String(contentsOfFile: path)
             } catch _ {
@@ -84,6 +103,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, CocoaMQTTDelegate {
             return
         }
         print(msg)
+        if (msg == "⏎") {
+            tap.dispatchEvent(chars: Array("\n".utf16))
+            return
+        }
         tap.dispatchEvent(chars: Array(msg.utf16))
     }
 

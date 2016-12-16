@@ -656,15 +656,22 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Mojify" customModuleProvider="target">
                     <connections>
+                        <outlet property="returnKeyOption" destination="nZA-Iu-08J" id="bkd-ZQ-8Ql"/>
                         <outlet property="statusMenu" destination="60J-TP-Ny7" id="Ilb-Hp-YFt"/>
                     </connections>
                 </customObject>
                 <menu id="60J-TP-Ny7">
                     <items>
-                        <menuItem title="Load Layout" id="Kdg-cE-Elf">
+                        <menuItem title="Reset Layout" id="Kdg-cE-Elf">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="resetClicked:" target="Voe-Tx-rLC" id="w1j-PB-Rek"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Show Return Key" id="nZA-Iu-08J">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="returnKeyOptionClicked:" target="Voe-Tx-rLC" id="n5Z-vu-rhG"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Quit" id="zxI-ER-xvh">
